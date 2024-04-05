@@ -1,0 +1,209 @@
+
+* {
+  /* font-family: Impact; */
+  border-radius: 8px;
+  /* margin: auto; */
+  text-align: center;
+  font-family: 'Comic Sans MS', cursive, sans-serif;
+}
+
+.allBtn {
+  text-align: center;
+  /* background-color: #f8f8f8; */
+}
+
+.gen-button{border: solid rgb(214, 221, 111);}
+.gen-button:hover{border: solid saddlebrown;}
+img{width: 70px; 
+  /* height: 70px; */
+}
+#icon {
+  width: 30px;
+}
+
+.link:hover {
+  background-color: rgb(107, 107, 93);
+}
+/*  TPYE------------------------------------------------------ */
+#resetFilters {
+
+  background-color: #ebe3e3;
+  /* 重置按鈕的背景顏色 */
+  font-size: 16px;
+  /* 設定字體大小 */
+  cursor: pointer;
+  border: solid black
+}
+
+#resetFilters:hover {
+  background-color: #777;
+  /* 滑鼠懸停時的背景顏色 */
+}
+
+.filter-button {
+ 
+  border-radius: 10px;
+  color: white;
+}
+
+.filter-button[data-type="normal"] {
+  background-color: #A8A878;
+  /* Normal - 灰色 */
+}
+
+.filter-button[data-type="fire"] {
+  background-color: #F08030;
+  /* Fire - 橙色 */
+}
+
+.filter-button[data-type="water"] {
+  background-color: #6890F0;
+  /* Water - 藍色 */
+}
+
+.filter-button[data-type="electric"] {
+  background-color: #F8D030;
+  /* Electric - 黃色 */
+}
+
+.filter-button[data-type="grass"] {
+  background-color: #78C850;
+  /* Grass - 綠色 */
+}
+
+.filter-button[data-type="ice"] {
+  background-color: #98D8D8;
+  /* Ice - 淺藍色 */
+}
+
+.filter-button[data-type="fighting"] {
+  background-color: #C03028;
+  /* Fighting - 紅色 */
+}
+
+.filter-button[data-type="poison"] {
+  background-color: #A040A0;
+  /* Poison - 紫色 */
+}
+
+.filter-button[data-type="ground"] {
+  background-color: #E0C068;
+  /* Ground - 棕色 */
+}
+
+.filter-button[data-type="flying"] {
+  background-color: #A890F0;
+  /* Flying - 天藍色 */
+}
+
+.filter-button[data-type="psychic"] {
+  background-color: #F85888;
+  /* Psychic - 粉紅色 */
+}
+
+.filter-button[data-type="bug"] {
+  background-color: #A8B820;
+  /* Bug - 綠色 */
+}
+
+.filter-button[data-type="rock"] {
+  background-color: #B8A038;
+  /* Rock - 灰褐色 */
+}
+
+.filter-button[data-type="ghost"] {
+  background-color: #705898;
+  /* Ghost - 紫色 */
+}
+
+.filter-button[data-type="dark"] {
+  background-color: #705848;
+  /* Dark - 黑色 */
+}
+
+.filter-button[data-type="steel"] {
+  background-color: #B8B8D0;
+  /* Steel - 銀色 */
+}
+
+.filter-button[data-type="fairy"] {
+  background-color: #EE99AC;
+  /* Fairy - 淺粉紅色 */
+}
+
+.filter-button[data-type="dragon"] {
+  background-color: #7038F8;
+  /* Dragon - 深紫色 */
+}
+
+/*  TPYE          END------------------------------------------------------ */
+
+/*左下圖片------------------------------ */
+#popup-container {
+  width: 100px ;  
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: none;
+  z-index: 999;
+  animation: slideIn 0.5s ease-out, bounceIn 0.5s 0.5s ease-in-out; /* 添加 bounceIn 動畫，延遲 0.5 秒開始 */
+}
+
+@keyframes slideIn {
+  from {
+      transform: translateX(-100%) translateY(100%);
+  }
+  to {
+      transform: translateX(0) translateY(0);
+  }
+}
+
+@keyframes bounceIn {
+  0%, 20%, 50%, 80%, 100% {
+      transform: translateY(0);
+  }
+  /* 40% {
+      transform: translateY(-20px);
+  } */
+  60% {
+      transform: translateY(-10px);
+  }
+}
+
+#popup-image {
+  transform: rotate(18deg) !important;
+}
+/*左下圖片END ----------------------------------------*/
+
+
+body {
+/* background-image: url('./pokemonbackground/132.jpg'); */
+/* background-image: url('../game/132.jpg'); */
+background-size: cover;
+background-position: center;
+background-repeat: no-repeat;
+height: 100vh; /* 設定高度為視窗的100% */
+margin: 0; /* 去除預設的 margin */
+}
+
+.container {
+  background-color: rgba(255, 255, 255, 0.8);
+}
+
+/* type btn */
+.modal-body{
+       
+  text-align: center;
+}
+#type{width: 465px;}
+/* type btn  end*/
+
+#typeBtn{
+  border-radius: 20px;
+  /* background-color: rgb(238, 255, 3); */
+  /* color: rgb(101, 19, 139); */
+}
+
+#typeimg{
+  width: 25px;
+}

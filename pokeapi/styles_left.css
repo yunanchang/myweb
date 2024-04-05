@@ -1,0 +1,44 @@
+input[type=checkbox] {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+
+#ww {
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 60px; /* 调整宽度为70px */
+  height: 25px; /* 计算高度的比例 */
+  /* background: grey; */
+  background: rgb(214, 221, 111);
+  display: block;
+  border-radius: 100px;
+  position: relative;
+}
+
+#ww:after {
+  content: '';
+  position: absolute;
+  top: 5px;
+  left: 5px;
+  width: 15px; /* 调整宽度为30px的比例 */
+  height: 15px; /* 保持高度和宽度的比例 */
+  background: #fff;
+  border-radius: 90px;
+  transition: 0.3s;
+}
+
+input:checked + #ww {
+  background: saddlebrown;;
+}
+
+input:checked + #ww:after {
+  left: calc(100% - 5px);
+  transform: translateX(-100%);
+}
+
+#ww:active:after {
+  width: 45px; /* 调整宽度为45px的比例 */
+}
+
+

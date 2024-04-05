@@ -1,0 +1,41 @@
+input[type=checkbox] {
+  height: 0;
+  width: 0;
+  visibility: hidden;
+}
+
+#ww {
+  cursor: pointer;
+  text-indent: -9999px;
+  width: 60px;
+  height: 25px;
+  background: rgb(214, 221, 111);
+  display: block;
+  border-radius: 100px;
+  position: relative;
+}
+
+#ww:after {
+  content: '';
+  position: absolute;
+  top: 5px;
+  right: 5px; /* 调整右边的位置 */
+  width: 15px;
+  height: 15px;
+  background: #fff;
+  border-radius: 90px;
+  transition: 0.3s;
+}
+
+input:checked + #ww {
+  background: saddlebrown;;
+}
+
+input:checked + #ww:after {
+  right: calc(100% - 5px); /* 从左边改为从右边开始 */
+  transform: translateX(100%); /* 从左边改为从右边开始 */
+}
+
+#ww:active:after {
+  width: 45px;
+}

@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+  body {
+    background-image: url(./pokemonbackground/1.jpg);
+  }
+</style>
+
+<head>
+  <title>PokeAPI Example</title>
+  <meta charset="utf-8">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+    integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdn.datatables.net/1.13.7/css/jquery.dataTables.css">
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" href="./css.css">
+
+
+</head>
+
+<body>
+  <div class="container">
+    <div class="Generations m-3">
+      <button type="button" class="gen-button " data-generation="1">Generation 1</button>
+      <button type="button" class="gen-button " data-generation="2">Generation 2</button>
+      <button type="button" class="gen-button " data-generation="3">Generation 3</button>
+      <button type="button" class="gen-button " data-generation="4">Generation 4</button>
+      <button type="button" class="gen-button " data-generation="5">Generation 5</button>
+      <button type="button" class="gen-button " data-generation="6">Generation 6</button>
+      <button type="button" class="gen-button " data-generation="7">Generation 7</button>
+      <button type="button" class="gen-button " data-generation="8">Generation 8</button>
+      <button type="button" class="gen-button " data-generation="9">Generation 9</button>
+      <button type="button" class="gen-button " data-generation="10">Generation All</button>
+    </div>
+    <div class="allBtn">
+      <button type="button" class="filter-button" data-type="normal">Normal</button>
+      <button type="button" class="filter-button" data-type="fire">Fire</button>
+      <button type="button" class="filter-button" data-type="water">Water</button>
+      <button type="button" class="filter-button" data-type="electric">Electric</button>
+      <button type="button" class="filter-button" data-type="grass">Grass</button>
+      <button type="button" class="filter-button" data-type="ice">Ice</button>
+      <button type="button" class="filter-button" data-type="fighting">Fighting</button>
+      <button type="button" class="filter-button" data-type="poison">Poison</button>
+      <button type="button" class="filter-button" data-type="ground">Ground</button>
+      <button type="button" class="filter-button" data-type="flying">Flying</button>
+      <button type="button" class="filter-button" data-type="psychic">Psychic</button>
+      <button type="button" class="filter-button" data-type="bug">Bug</button>
+      <button type="button" class="filter-button" data-type="rock">Rock</button>
+      <button type="button" class="filter-button" data-type="ghost">Ghost</button>
+      <button type="button" class="filter-button" data-type="dragon">Dragon</button>
+      <button type="button" class="filter-button" data-type="dark">Dark</button>
+      <button type="button" class="filter-button" data-type="steel">Steel</button>
+      <button type="button" class="filter-button" data-type="fairy">Fairy</button>
+      &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+      <button type="button" id="resetFilters" class="btn btn-sm">Reset</button>
+      <div class="d-flex justify-content-between">
+        <h3 id="currentFilter"></h3>
+        <h3 class="text-end" id="result"></h3>
+      </div>
+
+    </div>
+    <div>
+      <div class="allselect">
+        <select name="imageType" id="imageType">
+          <option value="front">Front View</option>
+          <option value="back">Back View</option>
+          <option value="official-artwork">Official Artwork</option>
+          <option value="Pokemon-home">Pokemon Home</option>
+          <option value="showdown-front">Showdown Front</option>
+          <option value="showdown-back">Showdown Back</option>
+        </select>
+        <!-- linkkk-------------------------------- -->
+        <!-- background -->
+        <label for="backgroundSelector">Background</label>
+        <select id="backgroundSelector"></select>
+        <!-- background -->
+        <!-- typebtn ----------------------->
+        <button id="typeBtn" type="button" data-toggle="modal" data-target="#myModal">
+          <!-- Tpye -->
+          <img id="typeimg" src="./pokemonicon/pikachu.png" alt="">
+          <!-- <img  id="typeimg"src="./pokemonicon/Trending - Pokedex Png, Transparent Png(1690x1207) - PinPng.jpg" alt=""> -->
+        </button>
+
+        <!-- The Modal -->
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+        <div class="modal" id="myModal">
+          <div class="modal-dialog">
+            <div class="modal-content">
+
+              <!-- Modal Header -->
+              <div class="modal-header">
+                <h4 class="modal-title">Pokemon Type Chart</h4>
+                <button type="button" class="close" data-dismiss="modal">&times;</button>
+              </div>
+
+              <!-- Modal Body -->
+              <div class="modal-body">
+                <img id="type" src="./pokemonicon/Pokemon_Type_Chart.svg.png" alt="">
+              </div>
+
+              <!-- Modal Footer -->
+
+
+            </div>
+          </div>
+        </div>
+        <!-- typebtn end------------------ -->
+        <link rel="stylesheet" href="./styles_left.css">
+        <div class="d-flex  justify-content-end">
+          <p>Basic &nbsp;&nbsp;</p>
+          <input type="checkbox" id="switch" onclick="toggleAndRedirect()" />
+          <label id='ww' for="switch">Toggle</label>
+          <p>&nbsp;&nbsp;Statistic</p>
+        </div>
+        <script>
+          function toggleAndRedirect() {
+            var checkbox = document.getElementById('switch');
+
+            // Check if the checkbox is checked
+            if (checkbox.checked) {
+              // Set a timeout to wait for 1000 milliseconds (1 second)
+              setTimeout(function () {
+                // Redirect to pageB.html
+
+                window.location.href = "./pokemon_statistic.html?start=" + start + "&end=" + end;
+              }, 500);
+            }
+          }
+        </script>
+        <!-- linkkk end ------------------------------- -->
+      </div>
+      <table class="display" id="myTable">
+        <thead>
+          <tr>
+            <th>ID</th>
+            <th>Name</th>
+            <th>Image</th>
+            <th>Shiny Image</th>
+            <th>Ability</th>
+            <th>Types</th>
+            <th>Height( m )</th>
+            <th>Weight( kg )</th>
+            <th>
+              <img src="./pokemonicon/pokemon.png" alt="" id="icon">
+              Details
+            </th>
+          </tr>
+        </thead>
+        <tbody>
+
+        </tbody>
+      </table>
+    </div>
+    <script src="https://cdn.datatables.net/1.13.7/js/jquery.dataTables.js"></script>
+    <script src="./script.js"></script>
+    <script>
+      $(document).ready(function () {
+
+        const tbody = $('tbody');
+        const table = $('#myTable').DataTable({
+          "columnDefs": [
+            {
+              "targets": 5, // "Types" 欄位的索引
+              "createdCell": function (td, cellData, rowData, row, col) {
+                // 解析多屬性
+                const types = cellData.split(', ');
+
+                // 清空現有內容
+                $(td).empty();
+                // 為每個屬性設置文字顏色
+                types.forEach((type, index) => {
+                  if (index > 0) {
+                    $(td).append(', '); // 在類型之間添加逗號
+                  }
+                  switch (type.toLowerCase()) {
+                    case 'normal':
+                      $(td).append(`<span style="color: #A8A878;">${type}</span>`); // Normal - 灰色
+                      break;
+                    case 'fire':
+                      $(td).append(`<span style="color: #F08030;">${type}</span>`); // Fire - 橙色
+                      break;
+                    case 'water':
+                      $(td).append(`<span style="color: #6890F0;">${type}</span>`); // Water - 藍色
+                      break;
+                    case 'electric':
+                      $(td).append(`<span style="color: #F8D030;">${type}</span>`); // Electric - 黃色
+                      break;
+                    case 'grass':
+                      $(td).append(`<span style="color: #78C850;">${type}</span>`); // Grass - 綠色
+                      break;
+                    case 'ice':
+                      $(td).append(`<span style="color: #98D8D8;">${type}</span>`); // Ice - 淺藍色
+                      break;
+                    case 'fighting':
+                      $(td).append(`<span style="color: #C03028;">${type}</span>`); // Fighting - 紅色
+                      break;
+                    case 'poison':
+                      $(td).append(`<span style="color: #A040A0;">${type}</span>`); // Poison - 紫色
+                      break;
+                    case 'ground':
+                      $(td).append(`<span style="color: #E0C068;">${type}</span>`); // Ground - 啡色
+                      break;
+                    case 'flying':
+                      $(td).append(`<span style="color: #A890F0;">${type}</span>`); // Flying - 淺藍色
+                      break;
+                    case 'psychic':
+                      $(td).append(`<span style="color: #F85888;">${type}</span>`); // Psychic - 粉紅色
+                      break;
+                    case 'bug':
+                      $(td).append(`<span style="color: #A8B820;">${type}</span>`); // Bug - 橄欖綠
+                      break;
+                    case 'rock':
+                      $(td).append(`<span style="color: #B8A038;">${type}</span>`); // Rock - 啡色
+                      break;
+                    case 'ghost':
+                      $(td).append(`<span style="color: #705898;">${type}</span>`); // Ghost - 紫色
+                      break;
+                    case 'dark':
+                      $(td).append(`<span style="color: #705848;">${type}</span>`); // Dark - 深灰色
+                      break;
+                    case 'dragon':
+                      $(td).append(`<span style="color: #7038F8;">${type}</span>`); // Dark - 深灰色
+                      break;
+                    case 'steel':
+                      $(td).append(`<span style="color: #B8B8D0;">${type}</span>`); // Steel - 銀色
+                      break;
+                    case 'fairy':
+                      $(td).append(`<span style="color: #EE99AC;">${type}</span>`); // Fairy - 淺粉紅色
+                      break;
+                    // 如果需要，可以添加更多類型的案例
+
+                  }
+                });
+              }
+            }
+          ]
+        });
+        const currentFilter = $('#currentFilter');
+        const activeFilters = [];
+        const imageTypeSelect = $('#imageType');
+        const result = $('#result');
+
+        for (let i = start; i <= end; i++) {
+          getPokemonInfo(i);
+        }
+
+        imageTypeSelect.change(function () {
+          // 重新載入數據，以便更新圖片類型
+          table.clear().draw();
+          for (let i = start; i <= end; i++) {
+            getPokemonInfo(i);
+          }
+        });
+
+
+  
+        function getPokemonInfo(pokemonId) {
+          $.ajax({
+            url: `https://pokeapi.co/api/v2/pokemon/${pokemonId}`,
+            method: 'GET',
+            success: function (pokemonData) {
+              let types = pokemonData.types.map(type => type.type.name).join(', ');
+              let ability = pokemonData['abilities'][0]['ability']['name'];
+              let formattedIndex = (pokemonData.id).toString().padStart(4, '0');
+
+
+              // 判斷kabi-pika---------------------------------------
+              let link = `<img src="./pokemonicon/up-arrow.png" alt="" style="width: 30px">`;
+              if (pokemonData.id === 143) {
+                link = `<img src="./pokemonicon/snorlax.png" alt="" style="width: 30px">`;
+              }
+              if (pokemonData.id === 25) {
+                link = `<img src="./pokemonicon/pikachu.png" alt="" style="width: 30px">`;
+              }
+              if (pokemonData.id === 151) {
+                link = `<img src="./pokemonicon/mew.png" alt="" style="width: 30px">`;
+              }
+
+              // 判斷kabi-pika  end---------------------------------------
+              let plink = `<a href="https://tw.portal-pokemon.com/play/pokedex/${formattedIndex}" target="_blank">
+                          <div class='link'>${link} </div>  </a>`
+
+              pokemonData.imageType = imageTypeSelect.val();
+
+              let images = getImageUrl(pokemonData);
+
+              // 將數據插入 DataTable
+              table.row.add([
+                pokemonData.id,
+                pokemonData.name,
+                images.normal,  // 使用普通圖像
+                images.shiny,   // 使用閃光圖像
+                ability,
+                types,
+                (pokemonData.height / 10),
+                (pokemonData.weight / 10),
+                plink
+              ]).draw();
+
+            },
+            error: function (error) {
+              console.error('Error fetching Pokemon data:', error);
+            }
+          });
+        }
+
+        // 綁定屬性按鈕的點擊事件
+        $('.filter-button').click(function () {
+          const type = $(this).data('type');
+
+          // 判斷是否已經存在於篩選條件中
+          if (activeFilters.includes(type)) {
+            // 移除篩選條件
+            const index = activeFilters.indexOf(type);
+            activeFilters.splice(index, 1);
+          } else {
+            // 添加篩選條件
+            activeFilters.push(type);
+          }
+
+          // 使用 DataTable 的 column().search 方法，只顯示完全符合指定類型的行
+          const filterRegex = activeFilters.map(filter => `(?=.*\\b${filter}\\b)`).join('');
+          table.column(5).search(filterRegex, true, false).draw();
+
+          // 顯示當前篩選條件
+          updateFilterText();
+        });
+
+        // 綁定 Reset 按鈕的點擊事件
+        $('#resetFilters').click(function () {
+          // 清空所有篩選條件
+          activeFilters.length = 0;
+          table.search('').columns().search('').draw();
+
+          // 重置當前篩選條件顯示
+          currentFilter.text('');
+          const pageInfo = table.page.info();
+          result.text(`Records: ${pageInfo.recordsTotal}`);
+        });
+
+        function updateFilterText() {
+          // 清空原有內容
+          currentFilter.empty();
+
+          // 根據篩選條件添加不同顏色的元素
+          activeFilters.forEach((filter, index) => {
+            const color = getColorForType(filter.toLowerCase());
+
+            // 如果不是第一個篩選條件，添加連接符號
+            if (index > 0) {
+              currentFilter.append('<span style="color: #000000;"> - </span>');
+            }
+
+            const filterElement = $(`<span class="filter-text" style="color: ${color};">${filter}</span>`);
+            currentFilter.append(filterElement);
+          });
+
+          // 添加 "Current Filter:" 文本
+          currentFilter.prepend('Current Filter: ');
+          const pageInfo = table.page.info();
+          result.text(`Records: ${pageInfo.recordsDisplay}`);
+        }
+
+
+
+      });
+    </script>
+  </div>
+
+  <div id="popup-container">
+    <img id="popup-image" alt="沒照片我也沒辦法啦~" style="width: 100px;">
+  </div>
+  <script>
+    $(document).ready(function () {
+      var popupContainer = $('#popup-container');
+      var popupImage = $('#popup-image');
+
+      // 定義照片連結的數量
+      var numberOfImages = 1025;
+
+      // 設定顯示和更換時間
+      var displayTime = 9000; // 6秒
+      var changeTime = 3000; // 3秒
+
+      // 顯示圖片
+      function showPopup(imageUrl) {
+        popupImage.attr('src', imageUrl);
+        popupContainer.css('display', 'block');
+      }
+
+      // 隱藏圖片
+      function hidePopup() {
+        popupContainer.css('display', 'none');
+      }
+
+      // 更換圖片
+      function changeImage() {
+        const randomIndex = Math.floor(Math.random() * numberOfImages) + 1;
+        const imageUrl = `https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/${randomIndex}.png`;
+
+        showPopup(imageUrl);
+
+        // 3秒後隱藏圖片
+        setTimeout(hidePopup, changeTime);
+      }
+
+      // 啟動定時器，6秒顯示一次
+      setInterval(changeImage, displayTime);
+
+      // 初始顯示第一張圖片
+      // changeImage();
+
+      for (var i = 1; i <= 250; i++) {
+        $('#backgroundSelector').append('<option value="./pokemonbackground/' + i + '.jpg">No.' + i + '</option>');
+      }
+
+
+      $('#backgroundSelector').val('./pokemonbackground/132.jpg');
+
+
+      updateBackground();
+
+
+      $('#backgroundSelector').change(function () {
+        updateBackground();
+      });
+
+
+      function updateBackground() {
+        var selectedValue = $('#backgroundSelector').val();
+        $('body').css('background-image', 'url(' + selectedValue + ')');
+      }
+    });
+  </script>
+</body>
+
+</html>

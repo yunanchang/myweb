@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Yu Nan website</title>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js"
+    integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+  <link rel="stylesheet" href="./css/portfolio.css">
+  <link rel="stylesheet" href="./css/htmlicon.css">
+  <link rel="stylesheet" href="./css/load.css">
+
+</head>
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+
+
+<style>
+
+  body {
+    padding-top: 56px;
+    /* 固定導覽欄高度 */
+    background-image: linear-gradient(to bottom, rgb(230, 232, 235) 0%, rgb(114, 114, 114) 100%);
+  }
+
+  * {
+    font-family: Impact;
+  }
+
+  #title {
+    /* background-color: antiquewhite; */
+    text-align: center;
+  }
+
+
+
+  #Skill {
+    /* margin-top: 300px; */
+    /* background-color: rgb(218, 218, 195); */
+    scroll-margin-top: 56px;
+    /* background-image: url('./img/joe-cooke-MPFiYu__1bA-unsplash.jpg'); */
+    background-size: cover;
+ 
+    background-position: center;
+
+    background-repeat: no-repeat;
+
+  }
+
+  #Portfolio {
+
+    /* background-color: #63E6BE; */
+    scroll-margin-top: 56px;
+    margin-bottom: 200px;
+  }
+
+  .footer1 {
+    /* margin-top: 600px; */
+    background-color: #343a40;
+    color: white;
+    text-align: center;
+    padding: 20px 0;
+  }
+
+</style>
+
+<body>
+  <!-- load -->
+  <section class="openingCover">
+    <section class="welcome">
+      <!-- <img src="../game/gamer.gif"> -->
+      <img src="./load.svg" alt="">
+    </section>
+    <section class="loadingBar">
+      <section class="loadingValue"></section>
+    </section>
+  </section>
+  <!-- gsap.js -->
+  <script src="./gsap/gsap.js"></script>
+  <script>
+    // header cover: website opening animation
+    const loadingtl = gsap.timeline();
+
+    loadingtl
+      .to(".loadingValue", 2.8, { width: "100%" })
+      .to(".loadingBar", 0, { display: 'none' })
+      .to(".welcome", 0, { display: 'none' })
+      .to(".openingCover", 0.5, { height: 0 })
+
+  </script>
+  <!-- load  end-->
+  <!-- 導覽欄 -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+    <a class="navbar-brand" href="#Top">My Brand</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+      aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ml-auto">
+        <li class="nav-item active">
+          <a class="nav-link" href="#Top">Top <span class="sr-only">(current)</span></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#Skill">Skill</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="#Portfolio">Portfolio</a>
+        </li>
+        <!-- <li class="nav-item">
+          <a class="nav-link" href="#contact">Contact</a>
+        </li> -->
+      </ul>
+    </div>
+  </nav>
+
+  <!-- title   --- -->
+
+  <div id="title">
+    <h1 id="typing-effect"></h1>
+
+    <script>
+      const text = "Hello, I'm Yu Nan";
+      const speed = 300; // 打字速度
+      const typingElement = document.getElementById("typing-effect");
+
+      let index = 0;
+      function startTypewriter() {
+        setTimeout(typeWriter, 5000); // 2 秒後啟動 typeWriter 函式
+      }
+
+      function typeWriter() {
+        if (index < text.length) {
+          typingElement.innerHTML += text.charAt(index);
+          index++;
+          setTimeout(typeWriter, speed);
+        }
+      }
+
+
+      startTypewriter();
+    </script>
+
+  </div>
+  <!-- title   ---end -->
+  <!-- Skill-- -->
+  <div id="Skill">
+    <ul class="responsive_grid">
+      <li>
+        <div class="team_member">
+          <div class="info">
+            <img src="./html icon/html-icon.svg" alt="" />
+            <h5>Html</h5>
+          </div>
+          <div class="info_reveal">
+            <h6>熟悉語意標籤，注重結構和內容的正確性</h6>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="team_member">
+          <div class="info">
+            <img src="./html icon/css-icon.svg" alt="" />
+            <h5>CSS</h5>
+
+          </div>
+          <div class="info_reveal">
+            <h6>熟悉CSS各項屬性，美化網站整體樣式，有 RWD 網頁規劃經驗，能夠創建在不同設備上都具有良好顯示效果的網頁。</h6>
+          </div>
+        </div>
+      </li>
+
+      <li>
+        <div class="team_member">
+          <div class="info">
+            <img src="./html icon/javascript-1.svg" alt="" />
+            <h5>JavaScript</h5>
+
+          </div>
+          <div class="info_reveal">
+            <h6>具備 JavaScript 基礎，能夠開發簡單的前端功能和網頁互動效果。</h6>
+
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="team_member">
+          <div class="info">
+            <img src="./html icon/jquery-icon.svg" alt="" />
+            <h5>Jquery</h5>
+
+          </div>
+          <div class="info_reveal">
+            <h6>熟練運用於網頁開發中，實現互動效果和串接數據等功能。</h6>
+
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="team_member">
+          <div class="info">
+            <img src="./html icon/bootstrap-4-icon.svg" alt="" />
+            <h5>Bootstrap</h5>
+
+          </div>
+          <div class="info_reveal">
+            <h6>熟悉 Bootstrap 5 框架，能夠利用其提供的組件和樣式來快速搭建現代化的網頁。</h6>
+          </div>
+        </div>
+      </li>
+
+      <li>
+        <div class="team_member">
+          <div class="info">
+            <img src="./html icon/mysql-icon.svg" alt="" />
+            <h5>Mysql</h5>
+
+          </div>
+          <div class="info_reveal">
+            <h6>具有 SQL 語言基礎知識，能夠編寫基本的 SQL 查詢和操作資料庫。</h6>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="team_member">
+          <div class="info">
+            <img src="./html icon/python-programming-language-icon.svg" alt="" />
+            <h5>Python</h5>
+
+          </div>
+          <div class="info_reveal">
+            <h6>具備 Python 程式語言基礎知識，能夠進行簡單的程式開發和腳本編寫。</h6>
+          </div>
+        </div>
+      </li>
+
+      <li>
+        <div class="team_member">
+          <div class="info">
+            <img src="./html icon/php-programming-language-icon.svg" alt="" />
+            <h5>PHP</h5>
+
+          </div>
+          <div class="info_reveal">
+            <h6>熟悉 PHP 程式語言，能夠進行後端開發和服務器端編程。</h6>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="team_member">
+          <div class="info">
+            <img src="./html icon/laravel-icon.svg" alt="" />
+            <h5>Laravel</h5>
+
+          </div>
+          <div class="info_reveal">
+            <h6>具備基礎的概念，能夠使用基本的 Linux 指令。</h6>
+          </div>
+        </div>
+      </li>
+
+      <!--  rest for just show-->
+
+
+      <li>
+        <div class="team_member">
+          <div class="info">
+            <img src="./html icon/adobe-photoshop-icon.svg" alt="" />
+            <h5>Photoshop</h5>
+
+          </div>
+          <div class="info_reveal">
+            <h6>熟悉 Photoshop 軟體，能夠進行基本的圖像編輯和設計製作ICON、LOGO等工作。</h6>
+          </div>
+        </div>
+      </li>
+      <li>
+        <div class="team_member">
+          <div class="info">
+            <img src="./html icon/adobe-illustrator-icon.svg" alt="" />
+            <h5>Illustrator</h5>
+
+          </div>
+          <div class="info_reveal">
+            <h6>熟悉 Illustrator 軟體，能夠進行基本的向量圖形設計和編輯。</h6>
+          </div>
+        </div>
+      </li>
+
+
+    </ul>
+  </div>
+  <!-- Skill  ---------------- end -->
+  <div id="Portfolio">
+
+    <div id="all" class="body">
+    </div>
+    <div id="allcontent">
+      <div id="maincontent">
+        <div class="portfolio">
+          <img src="./img/date.png" alt="Portfolio img"><br>
+          <a href="./PHP-Calendar-yunanchang/index.php" target="_blank">
+            <span class="txt">Calendar
+              <span style="font-size: 28px;"><i class="fa-solid fa-square-arrow-up-right" style="color: #f80000;"></i>
+              </span>
+          </a>
+          <div class="ombra"></div>
+        </div>
+        <div class="portfolio">
+          <img src="./img/vote.png" alt="Portfolio img"><br>
+          <a href="./vote/index.php" target="_blank">
+            <span class="txt">Survey
+              <span style="font-size: 28px;"><i class="fa-solid fa-square-arrow-up-right" style="color: #63E6BE;"></i>
+              </span>
+          </a>
+          <div class="ombra"></div>
+        </div>
+       
+        <div class="portfolio">
+          <img src="./img/shop.png" alt="Portfolio img"><br>
+          <a href="./shop/index.html" target="_blank">
+            <span class="txt">Shop
+              <span style="font-size: 28px;"><i class="fa-solid fa-square-arrow-up-right" style="color: #d7e205;"></i>
+              </span>
+          </a>
+          <div class="ombra"></div>
+        </div>
+        <div class="portfolio">
+          <img src="./img/624048_0.jpg" alt="Portfolio img" id="phtoimg"><br>
+          <span class="txt"> Photoshop </span>
+          <div class="ombra"></div>
+        </div>
+        <div class="portfolio">
+          <img src="./img/pokemon.png" alt="Portfolio img"><br>
+          <a href="./pokeapi/index.html" target="_blank">
+            <span class="txt">Pokeapi-AJAX
+              <span style="font-size: 28px;"><i class="fa-solid fa-square-arrow-up-right" style="color: #f87800;"></i>
+              </span>
+          </a>
+          <div class="ombra"></div>
+        </div>
+        <!-- ltn  -->
+        <div class="portfolio">
+          <img src="./ltn/ltn.png" alt="Portfolio img"><br>
+          <a href="./ltn/index.php" target="_blank">
+            <span class="txt">Ltn news
+              <span style="font-size: 28px;"><i class="fa-solid fa-square-arrow-up-right" style="color: #d300f8;"></i>
+              </span>
+          </a>
+          <div class="ombra"></div>
+        </div>
+        <!-- ltn end -->
+      </div>
+      <div id="navi"></div>
+      <!-- <div class="footer"><a href="http://theeggs.biz" alt="home">c.gomboli</a> / <a href="http://lab.theeggs.biz"
+                    alt="lab">lab</a></div> -->
+    </div>
+  </div>
+  <!-- 其他區塊 -->
+
+
+  <!-- 頁腳 -->
+  <footer class="footer1">
+    <div class="container">
+      <p>&copy; 2024 yu-nan Website
+        <a href="https://github.com/yunanchang" target="_blank" >
+          &nbsp; <img src="./github (1).png" alt="" style="width: 25px;">&nbsp;
+        </a>
+        </p>
+    </div>
+  </footer>
+  <script>
+
+    $('.portfolio').each(function (index) {
+      $(this).attr('id', 'img' + (index + 1));
+    });
+
+    $('.portfolio').each(function () {
+      $('#navi').append('<div class="circle"></div>');
+    });
+
+    $('.circle').each(function (index) {
+      $(this).attr('id', 'circle' + (index + 1));
+    });
+
+    $('.portfolio').click(function () {
+      if ($(this).hasClass('opened')) {
+        $(this).removeClass('opened');
+        $(".portfolio").fadeIn("fast");
+        $(this).find('.ombra').fadeOut();
+        $("#navi div").removeClass("activenav");
+      }
+      else {
+        var indexi = $("#maincontent .portfolio").index(this) + 1;
+        $(this).addClass('opened');
+        $(".portfolio").not(this).fadeOut("fast");
+        $(this).find('.ombra').fadeIn();
+        $("#circle" + indexi).addClass('activenav');
+      }
+    });
+
+    //navi buttons
+    $("#navi div").click(function () {
+      if ($(this).hasClass("activenav")) {
+        return false;
+      }
+
+      $("#navi div").removeClass("activenav");
+      $(".portfolio").removeClass('opened');
+      $(".portfolio").show();
+      $('.ombra').hide();
+
+      var index = $("#navi div").index(this) + 1;
+      $("#img" + index).addClass('opened');
+      $(".portfolio").not("#img" + index).fadeOut("fast");
+      $("#img" + index).find('.ombra').fadeIn();
+
+      $(this).addClass("activenav");
+    });</script>
+</body>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+</html>
